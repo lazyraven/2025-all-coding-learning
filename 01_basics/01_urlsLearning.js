@@ -5,3 +5,11 @@
 
 // JSON API url
 // https://randomuser.me/
+
+
+// shortcut for selecting same Element/duplicate element
+// click two time and press ctrl+d and move forward button
+
+
+// shortcut
+// div.day*4
