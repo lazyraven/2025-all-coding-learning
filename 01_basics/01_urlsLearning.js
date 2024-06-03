@@ -13,3 +13,10 @@
 
 // shortcut
 // div.day*4
+
+// JSON API
+// https://randomuser.me/
+// https://randomuser.me/api/
+
+
+// https://jsonplaceholder.typicode.com/users
