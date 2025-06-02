@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Marks</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+let marks = [10, 20, 30, 40, 50];
+    let sum = 0;
+    function addMarks(numbers){
+        console.log("add marks called ");
+        for(let i=0; i<numbers.length; i++){
+            sum = sum + numbers[i]
+        }
+        console.log("sum called", sum);
+        return sum
+    }
+   console.log(addMarks(marks)) 
+
+
+
+let marksCopy = [10, 20, 30, 40, 50];
+let sumCopy = 0;
+    function addMarksCopy(numbersCopy){
+        console.log(" addMarksCopy called ");
+        for(let i=0; i<numbers.length; i++){
+            sumCopy = sumCopy + numbersCopy[i]
+        }
+        console.log("sum called", sum);
+        return sum
+    }
+   console.log(addMarks(marks)) 
+</script>
+</html>

@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./problem1.js"></script>
 </head>
+
 <body>
-    <div>
-        <h3>Js problem 1</h3>
-    </div>
+    <h3>Problem related string</h3>
 </body>
+
+<script>
+    let arrayList = [
+        { id: 1, name: "This is paragraph! LM6000" },
+        { id: 1, name: "This is paragraph! LM2000" },
+        { id: 1, name: "This is LM2500 paragraph!" },
+        { id: 1, name: "This is paragraph! LM100" },
+        { id: 1, name: "This is LM6000 paragraph!" },
+        { id: 1, name: "This is  LM2500+ paragraph!" },
+        { id: 1, name: "This is paragraph! LM6000+" }
+    ]
+
+    let text = "LM6000"
+
+    let resultArray = []
+    let resultArrayOne = []
+
+arrayList.filter((item) => {
+        let splitStr = item.name.split(" ");
+        console.log("splitStr", splitStr);
+        let  resultArray =  splitStr.filter((itemOne) => {
+            if (itemOne == text) {
+                console.log("true");
+                // resultArrayOne = this.arrayList;
+                resultArrayOne.push(item)
+            }
+        })
+        console.log("resultArray", resultArray);
+        console.log("resultArrayOne", resultArrayOne);
+
+        
+    })
+    console.log("resultArray exit", resultArray);
+
+
+    // let resultFilter = splitStr.forEach(element => {
+    //     if(element == text){
+    //         console.log("true called");
+    //     }
+    //     else{
+    //         console.log("false called");
+    //     }
+    //     console.log("splitStr", splitStr);
+    // });
+
+
+    // steps 1
+    // let paraOne = "This is paragraph! LM6000"
+    // let text = "LM6000"
+
+
+    // let splitStr  = paraOne.split(" ")
+    // console.log("splitStr", splitStr);
+    // let resultFilter = splitStr.forEach(element => {
+    //     if(element == text){
+    //         console.log("true called");
+    //     }
+    //     else{
+    //         console.log("false called");
+    //     }
+    //     console.log("splitStr", splitStr);
+    // });
+</script>
+
 </html>
