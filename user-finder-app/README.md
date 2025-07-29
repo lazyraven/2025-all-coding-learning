@@ -1,5 +1,34 @@
-# Vue 3 + Vite
+# 🔍 User Finder App
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A simple Vue 3 (Composition API) application to fetch and search random users with pagination, debounce search, and local caching using Pinia and localStorage.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## ✨ Features
+
+- Vue 3 with Composition API
+- State Management with Pinia
+- Debounced Search
+- Client-side Pagination
+- API Data Fetching via Axios
+- LocalStorage caching
+- Modular Components
+
+---
+
+## 📦 Tech Stack
+
+- [Vue 3](https://vuejs.org/)
+- [Pinia](https://pinia.vuejs.org/)
+- [Axios](https://axios-http.com/)
+- [Vite](https://vitejs.dev/)
+- [RandomUser API](https://randomuser.me/)
+
+---
+
+## 🚀 Project Setup
+
+```bash
+git clone https://github.com/your-username/user-finder-app.git
+cd user-finder-app
+npm install
+npm run dev
+```

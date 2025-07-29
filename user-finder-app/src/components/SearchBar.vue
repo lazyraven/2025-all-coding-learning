@@ -3,13 +3,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { debounce } from '../utills/debounce.js'
+
 const emit = defineEmits(['onSearch'])
 const search = ref('')
 
-const emitSearch = () => {
-    emit('onSearch', search.value)
-}
+// const emitSearch = () => {
+//     emit('onSearch', search.value)
+// }
+
+// Optional Enhancements Breakdown
+// 1. Add Debounce to Search
+watch(search, debounce((val) => {
+    emit('onSearch', val)
+}, 300))
+
 
 </script>
 

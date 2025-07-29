@@ -1,5 +1,9 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import "./style.css";
+import App from "./App.vue";
+import { createPinia } from "pinia";
 
-createApp(App).mount('#app')
+// Optional Enhancements Breakdown
+// 3. Use Pinia for State Management
+
+createApp(App).use(createPinia()).mount("#app");
