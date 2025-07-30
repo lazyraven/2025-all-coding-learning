@@ -32,3 +32,7 @@ cd user-finder-app
 npm install
 npm run dev
 ```
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9963a123-2210-4d4e-b37d-4f454d7fb526/deploy-status)](https://app.netlify.com/projects/user-finder-app-chatgpt/deploys)
+
+[text](https://user-finder-app-chatgpt.netlify.app/)
