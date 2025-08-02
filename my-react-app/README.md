@@ -22,3 +22,5 @@ A modern, responsive admin dashboard built using **React**, **Tailwind CSS**, an
 - React Icons
 
 ## 📂 Folder Structure
+
+[ChatGpt Link](https://chatgpt.com/share/688cf2ca-ff80-8013-be2e-4c2990e53423)
