@@ -85,6 +85,18 @@ export default function App() {
             <p className="text-sm mt-1">Animated portfolio with Framer Motion showcasing skills, projects, and links.</p>
             <a href="#" className="text-blue-500 text-sm mt-1 inline-block">View on GitHub</a>
           </motion.div>
+
+          <motion.div
+            className="bg-white shadow rounded p-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h3 className="font-semibold text-xl">React + Tailwind Admin Dashboard</h3>
+            <p className="text-sm mt-1">Responsive dashboard with analytics widgets, user table, chart components, and theme toggle.</p>
+            <a href="#" className="text-blue-500 text-sm mt-1 inline-block">View on GitHub</a>
+          </motion.div>
         </div>
       </motion.section>
 
