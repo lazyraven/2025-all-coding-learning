@@ -12,3 +12,5 @@ https://github.com/lazyraven/2025-all-coding-learning/tree/main/Copilot-Pompt - 
 
 [my-react-app](https://github.com/lazyraven/2025-all-coding-learning/tree/main/my-react-app) - Skills: React + JS + Vite
 
+Other
+Learning YouTube Chai & Code videos and JS GitHub repository by Hitesh Chaudhary- This repo move to javascript_project_2022 repo
