@@ -131,7 +131,7 @@ export default function Roadmap({ query, plan }: Props) {
                   <div className="mt-2"><Progress value={pct} /></div>
                 </div>
                 <div className="text-sm text-slate-300 md:self-end">
-                  {['', 'Focus: fundamentals, async, event loop', 'Focus: components, state, routing, store', 'Focus: Express, DB, auth, validation', 'Focus: perf, streams, security, design'][w]}
+                  {['', 'Focus: fundamentals, async, event loop', 'Focus: components, state, routing, store', 'Focus: Express, DB, auth, validation', 'Focus: perf, streams, security, design', 'Focus: array methods, loops, one-two binding, storage'][w]}
                 </div>
               </div>
 
