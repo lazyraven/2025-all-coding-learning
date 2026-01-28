@@ -1,6 +1,6 @@
 # 2024-learning
 
-[User Finder App](https://user-finder-app-chatgpt.netlify.app/) - Search Section Pagination Debounce Enhancement - Skills: Vite, Vue - check readme file
+[User Finder App](https://user-finder-app-chatgpt.netlify.app/) - Search Section Pagination Debounce Enhancement - Skills: Vite, Vue - check readme file - deployed on this branch > branch : user-finder-app-chatgpt
 
 [Fullstack Roadmap](https://fullstack-interview-roadmap.netlify.app/) - Fullstack Roadmap Localstorage - Skills: Vite, React-18, Tailwind, Typescript - check readme file - [React Roadmap -Repo](https://github.com/lazyraven/2025-all-coding-learning/tree/main/react-roadmap)
 
