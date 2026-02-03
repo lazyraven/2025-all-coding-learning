@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { io } from "socket.io-client";
+import { useEffect, useState } from "react";
+import type { ChatMessage } from "./types/chat"
+const socket = io("http://localhost:3000");
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [messages, setMessages] = useState([]);
+  // type ChatMessage = {
+  //   id: string;
+  //   text: string;
+  //   sender: string;
+  //   timestamp: number;
+  // };
+  // const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    socket.on("chat-message", (msg) => {
+      setMessages(prev => [...prev, msg]);
+    });
+
+    return () => socket.off("chat-message");
+  }, []);
+
+  // useEffect(() => {
+  //   const handler = (msg: ChatMessage) => {
+  //     setMessages(prev => [...prev, msg]);
+  //   };
+
+  //   socket.on("chat-message", handler);
+  //   // This happens because your useEffect cleanup function is returning the socket, but React expects the cleanup to return nothing (void). A cleanup function should only perform side effects, not return a value.
+
+  //   // return () => socket.off("chat-message", handler); // will give error this line because need to add curly braces {}
+  //   return () => { socket.off("chat-message", handler); } // Fix: use a block body so it returns void
+
+
+  //   // React expects:
+  //   // () => void
+  //   // But your version was effectively:
+  //   // () => Socket
+
+  // }, []);
+
+
+  const sendMessage = () => {
+    socket.emit("chat-message", input);
+    setInput("");
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      {messages.map((m, i) => <p key={i}>{m}</p>)}
+      {/* {messages.map((m, i) => <p key={m.id}><strong>{m.sender}</strong>: {m.text}</p>)} */}
+      <input value={input} onChange={e => setInput(e.target.value)} />
+      <button onClick={sendMessage}>Send</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
