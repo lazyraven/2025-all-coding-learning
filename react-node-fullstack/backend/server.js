@@ -20,14 +20,14 @@ const server = http.createServer(app);
 app.use(express.json());
 app.use("/auth", require("./routes/auth"));
 
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173", // your React app
-//     credentials: true,
-//   }),
-// );
+app.use(
+  cors({
+    origin: "http://localhost:5173", // your React app
+    credentials: true,
+  }),
+);
 // This allows any frontend to access your API.
-app.use(cors());
+// app.use(cors());
 
 // Chat
 const io = new Server(server, {
