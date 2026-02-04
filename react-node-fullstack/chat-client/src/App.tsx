@@ -13,7 +13,9 @@ function App() {
   // };
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
-
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   // useEffect(() => {
   //   socket.on("chat-message", (msg) => {
   //     setMessages(prev => [...prev, msg]);
@@ -68,6 +70,25 @@ function App() {
     });
     setInput("")
   }
+
+  const login = async (e: any) => {
+    e.preventDefault();
+    setError("");
+    const res = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await res.json();
+    localStorage.setItem("token", data.token);
+  };
+  const socket = io("http://localhost:3000", {
+    auth: {
+      token: localStorage.getItem("token")
+    }
+  });
+
   return (
     <div>
       {/* {messages.map((m, i) => <p key={i}>{m}</p>)} */}
@@ -76,6 +97,32 @@ function App() {
       <button onClick={sendMessage}>Send</button>
 
       {/* <pre>{JSON.stringify(msg, null, 2)}</pre> */}
+
+
+      <div>
+        <h2>Login</h2>
+        <form onSubmit={login}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit">Login</button>
+        </form>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </div>
     </div>
   );
 }
