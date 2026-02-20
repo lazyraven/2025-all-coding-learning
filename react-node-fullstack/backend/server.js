@@ -15,19 +15,19 @@ const cors = require("cors");
 connectDB();
 
 const app = express();
+// app.use(
+//   cors({
+//     origin: "http://localhost:5173", // your React app
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   }),
+// );
+// This allows any frontend to access your API.
 const server = http.createServer(app);
 // jwt
 app.use(express.json());
 app.use("/auth", require("./routes/auth"));
-
-app.use(
-  cors({
-    origin: "http://localhost:5173", // your React app
-    credentials: true,
-  }),
-);
-// This allows any frontend to access your API.
-// app.use(cors());
+app.use(cors());
 
 // Chat
 const io = new Server(server, {
@@ -57,32 +57,32 @@ io.on("connection", async (socket) => {
 });
 
 // Step 1 — JWT socket middleware
-// io.use((socket, next) => {
-//   const token = socket.handshake.auth.token;
-//   if (!token) return next(new Error("Authentication error"));
+io.use((socket, next) => {
+  const token = socket.handshake.auth.token;
+  if (!token) return next(new Error("Authentication error"));
 
-//   try {
-//     const user = jwt.verify(token, SECRET);
-//     socket.user = user; // attach user to socket
-//     next();
-//   } catch (err) {
-//     next(new Error("Invalid token"));
-//   }
-//   // Now only authenticated users connect.
-// });
+  try {
+    const user = jwt.verify(token, SECRET);
+    socket.user = user; // attach user to socket
+    next();
+  } catch (err) {
+    next(new Error("Invalid token"));
+  }
+  // Now only authenticated users connect.
+});
 
 // // Step 2 — Use authenticated user in chat
-// io.on("connection", async () => {
-//   console.log("User Connected", socket.user.username);
-//   socket.on("chat-message", async (text) => {
-//     const message = await Message.create({
-//       sender: socket.user.username,
-//       text,
-//       room: "global",
-//     });
-//     io.emit("chat-message", message);
-//   });
-// });
+io.on("connection", async () => {
+  console.log("User Connected", socket.user.username);
+  socket.on("chat-message", async (text) => {
+    const message = await Message.create({
+      sender: socket.user.username,
+      text,
+      room: "global",
+    });
+    io.emit("chat-message", message);
+  });
+});
 // Important:
 // server trusts JWT, not frontend username
 // prevents impersonation
