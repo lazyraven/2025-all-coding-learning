@@ -1,9 +1,7 @@
 # React Roadmap Tracker Answer
 All solutions in this repo section
 https://github.com/lazyraven/javascript_project_2022/tree/main/fullstack-interview-2025-website-solution
-OR
-
-# React Roadmap Tracker Answer
+# OR
 Fullstack Interview Solution (https://lazyraven.github.io/developer-study-hub/)
 https://github.com/lazyraven/developer-study-hub/tree/main
 
