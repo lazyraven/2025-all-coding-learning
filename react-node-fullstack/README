@@ -1,0 +1,32 @@
+## 📌 WebSockets
+* Websocket in chat application
+* Read from register Notes (2 Feb 2026)
+* Backend Setup (Node.Js + Socket.IO)
+* Authentication
+* JWT + Websocket
+
+React UI - Socket.IO- Node Backend - MongoDB
+----
+I used Copilot & ChatGPT to build the chat application. 
+---
+You can pick one and I’ll go deep step-by-step:
+
+Full production chat architecture design
+
+Add MongoDB message persistence
+
+Authentication with JWT + WebSocket
+
+Chat rooms + private messaging
+
+Scaling WebSocket with Redis
+
+Deployment (Docker / cloud)
+
+Interview-style WebSocket coding questions
+
+Advanced Socket.IO patterns
+
+Debugging real-time apps
+
+---
